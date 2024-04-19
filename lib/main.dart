@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_imagepicker/Screen/HomeScreen.dart';
 import 'package:test_imagepicker/Screen/OpenCameraScree.dart';
 
 void main() {
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: OpenCameraScreen(),
+      home: HomeScreen(),
     );
   }
 }
