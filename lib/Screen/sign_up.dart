@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'package:flutter/material.dart';
-import 'package:test_imagepicker/Screen/HomeScreen.dart';
-import 'package:test_imagepicker/Screen/SignInScreen.dart';
-import 'package:test_imagepicker/routes/routes.dart';
-import 'package:test_imagepicker/widget/textfield.dart';
+import 'package:test_imagepicker/Screen/home.dart';
+import 'package:test_imagepicker/Screen/sign_in.dart';
+import 'package:test_imagepicker/widgets/textfield.dart';
+
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key, required String title});
@@ -113,11 +113,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 IconButton(
                     onPressed: () {
-                      PageRouting.goToNextPage(
-                          context: context,
-                          navigateTo: SignInScreen(
-                            title: '',
-                          ));
+                      Navigator.push<void>(
+              context,
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) =>  SignInScreen(title: '',),
+              ),
+            );
                     },
                     icon: Icon(
                       Icons.arrow_forward,
@@ -138,11 +139,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
               padding: EdgeInsets.only(right: 20),
               child: ElevatedButton(
                 onPressed: () {
-                  PageRouting.goToNextPage(
-                      context: context,
-                      navigateTo: HomeScreen(
-                       
-                      ));
+                  Navigator.push<void>(
+              context,
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) =>  Home(),
+              ),
+            );
                 },
                 child: Text(
                   "Sign Up",
@@ -187,7 +189,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Image.asset("images/grass.png"),
+                  Image.asset("assets/images/grass.png"),
                 ],
               ),
             ),

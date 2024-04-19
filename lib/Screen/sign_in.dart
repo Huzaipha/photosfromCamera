@@ -1,11 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'package:flutter/material.dart';
-import 'package:test_imagepicker/Screen/HomeScreen.dart';
-import 'package:test_imagepicker/Screen/SignUpScreen.dart';
-import 'package:test_imagepicker/routes/routes.dart';
-import 'package:test_imagepicker/widget/textfield.dart';
-
+import 'package:test_imagepicker/Screen/home.dart';
+import 'package:test_imagepicker/Screen/sign_up.dart';
+import 'package:test_imagepicker/widgets/textfield.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key, required String title});
@@ -24,7 +22,7 @@ class _SignInScreenState extends State<SignInScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.asset(
-          "images/SignInScreen.png",
+          "assets/images/SignInScreen.png",
           height: 260,
         ),
         Container(
@@ -61,7 +59,7 @@ class _SignInScreenState extends State<SignInScreen> {
         // ),
         Container(
           padding: EdgeInsets.only(top: 10),
-         margin: EdgeInsets.only(left: 20,top: 10, right:20),
+          margin: EdgeInsets.only(left: 20, top: 10, right: 20),
           width: 450,
           height: 50,
           decoration: BoxDecoration(
@@ -78,7 +76,7 @@ class _SignInScreenState extends State<SignInScreen> {
         ),
         Container(
           padding: EdgeInsets.only(top: 10),
-          margin: EdgeInsets.only(left: 20,top: 10, right:20),
+          margin: EdgeInsets.only(left: 20, top: 10, right: 20),
           width: 450,
           height: 50,
           decoration: BoxDecoration(
@@ -97,14 +95,15 @@ class _SignInScreenState extends State<SignInScreen> {
           height: 20,
         ),
         Container(
-          margin: EdgeInsets.only(left: 20,top: 10, right:20),
+          margin: EdgeInsets.only(left: 20, top: 10, right: 20),
           child: ElevatedButton(
             onPressed: () {
-              PageRouting.goToNextPage(
-                  context: context,
-                  navigateTo: HomeScreen(
-                    
-                  ));
+              Navigator.push<void>(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => Home(),
+                ),
+              );
             },
             child: Text(
               "Sign In",
@@ -124,14 +123,17 @@ class _SignInScreenState extends State<SignInScreen> {
           height: 13,
         ),
         Container(
-          margin: EdgeInsets.only(left: 20,top: 10, right:20),
+          margin: EdgeInsets.only(left: 20, top: 10, right: 20),
           child: ElevatedButton(
             onPressed: () {
-              PageRouting.goToNextPage(
-                  context: context,
-                  navigateTo: SignUpScreen(
+              Navigator.push<void>(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) => SignUpScreen(
                     title: '',
-                  ));
+                  ),
+                ),
+              );
             },
             child: Text(
               "Sign Up",
